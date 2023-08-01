@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anigu - Recruitment Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #b4aeda;
+        }
+       
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+        .button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        form {
+            text-align: left;
+            margin-top: 2rem;
+        }
+        label {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+        nav{
+            display:flex;
+            justify-content:space-around;
+            align-items: centre;
+            height: 50px;
+            background-color: rgb(14, 14, 87);
+        }
+        nav ul{
+            display:flex;
+            justify-content: centre;
+
+        }
+        nav ul li{
+            list-style: none;
+            margin: 0 23px;
+            
+        }
+        .left{
+            font-size: 2rem;
+            color: rgba(240, 248, 255, 0.904);
+        }
+        .right{
+            color: rgba(240, 248, 255, 0.767);
+        }
+        div3 {
+      font-size: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;}
+      
+      
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div1 class="left">Anigu Tech </div1>
+            <div2 class="right">
+                <ul>
+                    <li>home</li>
+                    <li>about</li>
+                    <li>services</li>
+                    <li>projects</li>
+                    <li>contact us</li>
+
+                </ul>
+            </div2>
+        </nav>
+    </header>
+    <div class="container">
+        <div>
+            <img src="add.jpg.png" >
+        </div>
+        <h1>Welcome to Anigu!</h1>
+        <p>We help companies find the best talent in the tech industry.</p>
+        <button class="button">Get Started</button>
+        <h2>Apply for Recruitment</h2>
+        <div id="output"></div>
+
+    <script>
+        const professions = [
+            "Software Engineer",
+            "Product Manager",
+            "Data Scientist",
+            // Add more professions here as needed
+        ];
+
+        const outputDiv = document.getElementById("output");
+
+        function displayProfession(index) {
+            if (index < professions.length) {
+                outputDiv.textContent = professions[index];
+                setTimeout(() => displayProfession(index + 1), 2000); // 2000ms delay (2 seconds) between professions
+            } else {
+             outputDiv.textContent = "etc";
+            }
+        }
+
+        displayProfession(0);
+    </script>
+
+        <form id="applicationForm" style="display: none;">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="position">Position:</label>
+            <select id="position" name="position" required>
+                <option value="">Select a position</option>
+                <option value="Software Engineer">Software Engineer</option>
+                <option value="Product Manager">Product Manager</option>
+                <option value="Data Scientist">Data Scientist</option>
+                <!-- Add more options as needed -->
+            </select>
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
+            <div class="form-group">
+                <label for="education">Education:</label>
+                <input type="text" id="education" class="form-control" name="education" required>
+            </div>
+        
+            <div class="form-group">
+                <label for="experience">Experience (years):</label>
+                <input type="number" id="experience" class="form-control" name="experience" required>
+            </div>
+        
+            <div class="form-group">
+                <label for="whyJoin">Why do you want to join us?</label>
+                <textarea id="whyJoin" class="form-control" name="whyJoin" rows="4" required></textarea>
+            </div>
+        
+            <div class="form-group">
+                <label for="skills">Skills:</label>
+                <input type="text" id="skills" class="form-control" name="skills" required>
+            </div>
+        
+            <div class="form-group">
+                <label for="hobbies">Hobbies:</label>
+                <input type="text" id="hobbies" class="form-control" name="hobbies" required>
+            </div>
+
+            <label for="resume">Upload Resume:</label>
+            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+
+            <label for="coverLetter">Cover Letter:</label>
+            <textarea id="coverLetter" name="coverLetter" rows="6"></textarea>
+
+            <button class="button" type="submit">Submit Application</button>
+            <div3>
+                <nav2>
+                    <div1 class="left"><img src="images.png"> </div1>
+                    <div4 class="right">
+                        Thanks For Applying
+                    </div4>
+                </nav2>
+            </div3>
+            
+        </form>
+    </div>
+
+    <script>
+        const getStartedButton = document.querySelector(".button");
+        const applicationForm = document.getElementById("applicationForm");
+
+        getStartedButton.addEventListener("click", function () {
+            getStartedButton.style.display = "none";
+            applicationForm.style.display = "block";
+        });
+
+        // Add JavaScript validation and form submission logic as needed.
+    </script>
+
+</body>
+</html>
